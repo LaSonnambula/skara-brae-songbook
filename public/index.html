@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skara Brae Songbook</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Skara Brae 1971 专辑歌词：盖尔语原文 · 英译 · 中文三语对照，私人歌本。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+SC:wght@400;500;600&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    /* peat hearth on carved stone */
+    --stone:      #15130f;   /* warm basalt ground */
+    --stone-2:    #1b1812;
+    --panel:      #211d16;
+    --panel-2:    #272117;
+    --edge:       #3a3224;
+    --edge-soft:  #2e281d;
+    --carve:      #0d0b08;   /* incised shadow */
+    --chalk:      #e8dfcc;   /* lime-wash text */
+    --chalk-dim:  #bcb199;
+    --ash:        #988c77;   /* muted caption */
+    --ember:      #c9622e;   /* peat fire — the one accent */
+    --ember-br:   #e2884a;
+    --lichen:     #869062;   /* lichen green, secondary */
+    --lichen-dim: #5f6a44;
+    --shadow: 0 20px 50px -24px #000d;
+    --f-display: "Fraunces", "Georgia", serif;
+    --f-body:    "Spectral", "Georgia", serif;
+    --f-zh:      "Noto Serif SC", "Songti SC", "SimSun", serif;
+  }
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1100px 520px at 82% -10%, #2a2214 0%, transparent 62%),
+      radial-gradient(760px 620px at -8% 112%, #1a1d14 0%, transparent 58%),
+      var(--stone);
+    color: var(--chalk);
+    font-family: var(--f-body);
+    font-size: 17px;
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  /* ---------- layout shell ---------- */
+  .wrap {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 22px 90px;
+    display: grid;
+    grid-template-columns: 278px 1fr;
+    gap: 44px;
+    align-items: start;
+  }
+
+  /* ---------- hero : carved lintel ---------- */
+  .hero {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 70px 16px 30px;
+    position: relative;
+  }
+  .hero .kicker {
+    font-family: var(--f-display);
+    font-weight: 500;
+    letter-spacing: .5em;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: var(--ember);
+    margin: 0 0 22px;
+    padding-left: .5em;
+  }
+  .hero h1 {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: clamp(52px, 10vw, 112px);
+    line-height: .9;
+    margin: 0;
+    color: var(--chalk);
+    letter-spacing: .02em;
+    /* incised / carved-into-stone */
+    text-shadow: 0 1px 0 var(--carve), 0 2px 1px #0008;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ember-br);
+  }
+  .hero .sub {
+    font-family: var(--f-zh);
+    font-size: clamp(14.5px, 2.2vw, 17px);
+    color: var(--ash);
+    margin: 24px auto 0;
+    max-width: 34ch;
+    text-wrap: balance;
+    word-break: keep-all;
+    letter-spacing: .02em;
+  }
+  .rule {
+    width: 120px; height: 1px;
+    margin: 28px auto 0;
+    background: linear-gradient(90deg, transparent, var(--edge) 15%, var(--ember) 50%, var(--edge) 85%, transparent);
+    position: relative;
+  }
+  .rule::after {
+    content: "☍";
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--stone);
+    color: var(--ember); padding: 0 12px; font-size: 13px;
+  }
+
+  /* ---------- search ---------- */
+  .search { max-width: 440px; margin: 28px auto 0; }
+  .search-field { position: relative; display: flex; align-items: center; }
+  .search-field .icon {
+    position: absolute; left: 14px; font-size: 13px;
+    color: var(--ash); pointer-events: none;
+  }
+  .search input {
+    width: 100%;
+    background: #00000030;
+    border: 1px solid var(--edge);
+    border-radius: 2px;
+    color: var(--chalk);
+    font-family: var(--f-body);
+    font-size: 16px; text-align: center;
+    padding: 11px 38px; outline: none;
+    transition: border-color .18s, background .18s;
+  }
+  .search input:focus { background: var(--carve); border-color: var(--ember); }
+  .search input::placeholder { color: var(--ash); font-style: italic; }
+  .search .clear {
+    position: absolute; right: 8px;
+    background: none; border: 0; color: var(--ash);
+    font-size: 16px; line-height: 1; cursor: pointer;
+    padding: 4px 6px; display: none;
+  }
+  .search .clear:hover { color: var(--chalk); }
+  .search.has-query .clear { display: block; }
+
+  /* ---------- sidebar ---------- */
+  .side { position: sticky; top: 16px; align-self: start; }
+  .side-inner {
+    background: linear-gradient(180deg, var(--panel), var(--stone-2));
+    border: 1px solid var(--edge);
+    border-radius: 3px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .side h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 11px; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--ember);
+    margin: 0; padding: 18px 20px 13px;
+    border-bottom: 1px solid var(--edge-soft);
+  }
+
+  .results { list-style: none; margin: 0; padding: 8px; }
+  .results .hint {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 14px; color: var(--ash); padding: 8px 12px 12px;
+  }
+  .results li { margin: 0 0 2px; }
+  .results button {
+    width: 100%; text-align: left; background: none;
+    border: 0; border-left: 2px solid transparent;
+    color: var(--ash); font-family: var(--f-body);
+    padding: 8px 12px; cursor: pointer;
+    border-radius: 0 2px 2px 0;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .results button:hover { color: var(--chalk); background: #ffffff07; border-left-color: var(--lichen-dim); }
+  .results button.active { color: var(--ember-br); border-left-color: var(--ember); background: #c9622e16; }
+  .results .r-title { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .results .r-title .name { font-family: var(--f-display); font-size: 17px; color: var(--chalk); }
+  .results button:hover .name, .results button.active .name { color: inherit; }
+  .results .r-title .r-album {
+    font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--lichen); opacity: .85; flex: none;
+  }
+  .results .r-snip {
+    font-size: 13px; color: var(--ash); margin-top: 2px; line-height: 1.5;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .results .r-snip.zh { font-family: var(--f-zh); }
+  .results mark { background: #c9622e30; color: var(--ember-br); border-radius: 1px; padding: 0 1px; }
+  .hidden { display: none !important; }
+
+  .albums { list-style: none; margin: 0; padding: 8px; }
+  .album { margin: 0 0 2px; }
+  .album > button {
+    width: 100%; display: flex; align-items: baseline; gap: 10px;
+    background: none; border: 0; color: var(--chalk);
+    font-family: var(--f-display); font-weight: 500; font-size: 21px;
+    text-align: left; padding: 11px 12px; border-radius: 2px; cursor: pointer;
+    transition: background .18s;
+  }
+  .album > button:hover { background: #ffffff0a; }
+  .album > button .caret {
+    flex: none; margin-left: auto; font-size: 11px; line-height: 1;
+    color: var(--ash); transition: transform .2s ease, color .18s; transform: rotate(0deg);
+  }
+  .album.open > button .caret { transform: rotate(90deg); color: var(--ember); }
+  .album > button .yr {
+    font-family: var(--f-body); font-size: 12px; color: var(--ash); letter-spacing: .04em;
+  }
+  .tracks {
+    list-style: none; margin: 0 0 6px; padding: 0 8px 4px 14px;
+    display: grid; grid-template-rows: 0fr; opacity: 0;
+    transition: grid-template-rows .24s ease, opacity .2s ease, margin .24s ease;
+  }
+  .tracks > .tracks-inner { overflow: hidden; min-height: 0; }
+  .album.open > .tracks { grid-template-rows: 1fr; opacity: 1; }
+  .album:not(.open) > .tracks { margin-bottom: 0; }
+  .tracks li { margin: 0; }
+  .tracks button {
+    width: 100%; text-align: left; background: none; border: 0;
+    border-left: 2px solid transparent; color: var(--ash);
+    font-family: var(--f-body); font-size: 15.5px; padding: 6px 12px;
+    cursor: pointer; border-radius: 0 2px 2px 0;
+    transition: color .15s, border-color .15s, background .15s;
+    display: flex; justify-content: space-between; gap: 8px; align-items: center;
+  }
+  .tracks button:hover { color: var(--chalk); background: #ffffff07; }
+  .tracks button.active { color: var(--ember-br); border-left-color: var(--ember); background: #c9622e16; }
+  .tracks button .lang {
+    font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--lichen); opacity: .85; flex: none;
+  }
+  .tracks button .todo {
+    font-size: 9px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ash); border: 1px solid var(--edge); border-radius: 2px;
+    padding: 1px 7px; flex: none;
+  }
+
+  /* ---------- main song panel ---------- */
+  .main { min-width: 0; }
+  .song-head {
+    margin: 4px 0 24px; padding-bottom: 20px;
+    border-bottom: 1px solid var(--edge-soft);
+  }
+  .song-head .album-tag {
+    font-family: var(--f-display); font-weight: 500;
+    font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--lichen); margin: 0 0 12px;
+  }
+  .song-head h2 {
+    font-family: var(--f-display); font-weight: 500;
+    font-size: clamp(34px, 5.4vw, 58px); line-height: 1.0;
+    margin: 0; color: var(--chalk); text-wrap: balance;
+    text-shadow: 0 1px 0 var(--carve);
+  }
+  .song-head .meta {
+    margin: 14px 0 0; font-size: 14px; color: var(--ash);
+    display: flex; flex-wrap: wrap; gap: 6px 20px;
+    font-family: var(--f-display); font-style: italic;
+  }
+  .song-head .meta b {
+    font-style: normal; font-weight: 500; color: var(--ember);
+    font-family: var(--f-display); font-size: 11px;
+    letter-spacing: .18em; text-transform: uppercase; margin-right: 6px;
+  }
+
+  .note {
+    background: var(--panel-2); border: 1px solid var(--edge);
+    border-left: 3px solid var(--lichen-dim); border-radius: 2px;
+    padding: 14px 18px; margin: 0 0 24px;
+    font-family: var(--f-zh); font-size: 14.5px; line-height: 1.85; color: var(--chalk-dim);
+  }
+  .note b {
+    color: var(--lichen); font-family: var(--f-display); font-weight: 600;
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    display: block; margin-bottom: 4px;
+  }
+
+  /* ---------- the tri-lingual switch (signature) ---------- */
+  .switch-bar {
+    display: flex; align-items: center; gap: 14px;
+    margin: 0 0 22px; flex-wrap: wrap;
+  }
+  .switch-label {
+    font-family: var(--f-display); font-style: italic;
+    font-size: 13px; color: var(--ash);
+  }
+  .switch { display: inline-flex; border: 1px solid var(--edge); border-radius: 2px; overflow: hidden; }
+  .switch button {
+    background: none; border: 0; cursor: pointer;
+    font-family: var(--f-display); font-weight: 500;
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ash); padding: 7px 16px;
+    border-right: 1px solid var(--edge);
+    transition: color .15s, background .15s;
+  }
+  .switch button:last-child { border-right: 0; }
+  .switch button:hover { color: var(--chalk); }
+  .switch button[aria-pressed="true"] { color: var(--stone); background: var(--ember); }
+  .switch .disabled { opacity: .35; cursor: not-allowed; }
+  .switch .disabled:hover { color: var(--ash); }
+
+  /* stanza: Gaelic anchor (left) + switchable gloss (right) */
+  .lyrics { display: flex; flex-direction: column; gap: 24px; }
+  .stanza {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px 44px; padding: 2px 0; position: relative;
+  }
+  .stanza::before {
+    content: ""; position: absolute; left: 50%; top: 2px; bottom: 2px;
+    width: 1px; background: var(--edge-soft); transform: translateX(-50%);
+  }
+  .stanza.solo { grid-template-columns: 1fr; }
+  .stanza.solo::before { display: none; }
+  .orig, .gloss { min-width: 0; }
+  .orig {
+    font-family: var(--f-body); font-size: 18px; color: var(--chalk);
+    font-feature-settings: "liga" 1;
+  }
+  .orig .line { display: block; }
+  .orig .missing {
+    font-family: var(--f-display); font-style: italic;
+    color: var(--ash); opacity: .55; font-size: 15px;
+  }
+  .gloss { font-size: 16.5px; line-height: 1.8; color: var(--chalk); }
+  .gloss.zh { font-family: var(--f-zh); }
+  .gloss.en { font-family: var(--f-body); color: var(--chalk-dim); }
+  .gloss .line { display: block; }
+  .gloss.empty {
+    font-family: var(--f-display); font-style: italic;
+    color: var(--ash); opacity: .5; align-self: center;
+  }
+  .stanza.chorus .orig,
+  .stanza.chorus .gloss { padding-left: 14px; border-left: 2px solid var(--ember); }
+  .stanza.chorus .orig { color: var(--ember-br); }
+  .stanza .role {
+    grid-column: 1 / -1;
+    font-family: var(--f-display); font-weight: 500;
+    font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--lichen); margin-bottom: -4px;
+  }
+  /* column captions */
+  .col-caps {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0 44px;
+    margin: 0 0 10px;
+  }
+  .col-caps.solo { grid-template-columns: 1fr; }
+  .col-caps span {
+    font-family: var(--f-display); font-weight: 600;
+    font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--ash);
+  }
+
+  .placeholder {
+    text-align: center; padding: 44px 20px;
+    border: 1px dashed var(--edge); border-radius: 3px; background: #ffffff05;
+  }
+  .placeholder p {
+    font-family: var(--f-display); font-style: italic; font-size: 18px;
+    color: var(--chalk-dim); max-width: 52ch; margin: 0 auto 6px;
+  }
+  .placeholder .how {
+    font-family: var(--f-body); font-style: normal; font-size: 14px;
+    color: var(--ash); margin-top: 16px;
+  }
+
+  footer {
+    grid-column: 1 / -1; text-align: center; margin-top: 64px;
+    padding-top: 24px; border-top: 1px solid var(--edge-soft);
+    color: var(--ash); font-family: var(--f-display); font-style: italic; font-size: 14px;
+  }
+  footer .mark { color: var(--ember); font-style: normal; font-size: 17px; }
+
+  .mobile-bar { display: none; }
+
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; gap: 0; }
+    .hero { padding: 46px 8px 22px; }
+    .side { position: static; margin-bottom: 8px; }
+    .side-inner.collapsed .albums { display: none; }
+    .mobile-bar {
+      display: flex; justify-content: space-between; align-items: center; width: 100%;
+      background: none; border: 0; color: var(--ember);
+      font-family: var(--f-display); font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase; font-size: 12px;
+      padding: 16px 20px; cursor: pointer;
+    }
+    .stanza { grid-template-columns: 1fr; gap: 6px; }
+    .stanza::before { display: none; }
+    .orig { padding-bottom: 8px; border-bottom: 1px dotted var(--edge); }
+    .col-caps { display: none; }
+    .main { padding-top: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <p class="kicker">Leabhar na nAmhrán · 歌本</p>
+    <h1>Skara <em>Brae</em></h1>
+    <p class="sub">多奈戈尔盖尔语传统民谣 · 1971 — 原文 / 英译 / 中文三语对照</p>
+    <div class="rule"></div>
+    <div class="search" id="search">
+      <div class="search-field">
+        <span class="icon" aria-hidden="true">⌕</span>
+        <input type="search" id="searchInput" placeholder="搜歌名或歌词…"
+               autocomplete="off" spellcheck="false" aria-label="搜索歌名或歌词">
+        <button class="clear" id="searchClear" type="button" aria-label="清除搜索">✕</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="side">
+    <div class="side-inner" id="sideInner">
+      <button class="mobile-bar" id="mobileBar" aria-expanded="true">
+        <span>曲目 · Clár</span><span id="mobileCaret">▾</span>
+      </button>
+      <h2 id="sideHead">Songbook</h2>
+      <ul class="results hidden" id="resultList"></ul>
+      <ul class="albums" id="albumList"></ul>
+    </div>
+  </nav>
+
+  <main class="main" id="main"></main>
+
+  <footer>
+    <div class="mark">❦</div>
+    Leabhar príobháideach · 私人歌本 · 仅供个人欣赏与学习
+  </footer>
+</div>
+
+<script src="data/albums.js"></script>
+<script>
+/* ---------- state ---------- */
+const albumList = document.getElementById("albumList");
+const main = document.getElementById("main");
+let current = null;
+// 右栏显示的语言：'zh' 或 'en'。盖尔语原文(orig)始终在左。
+let glossLang = "zh";
+try { const g = localStorage.getItem("sb_gloss"); if (g === "en" || g === "zh") glossLang = g; } catch(e){}
+
+function songId(ai, si){ return "s"+ai+"_"+si; }
+
+/* ---------- language labels ---------- */
+const LANG_NAMES = {
+  GA:"爱尔兰语", EN:"英语", "Instr.":"器乐"
+};
+function langCodes(lang){
+  if (Array.isArray(lang)) return lang;
+  if (!lang) return [];
+  return String(lang).split("/").map(s=>s.trim()).filter(Boolean);
+}
+function langLabel(lang){ return langCodes(lang).join("·"); }
+function langName(lang){
+  const codes = langCodes(lang);
+  if (!codes.length) return "—";
+  return codes.map(c => LANG_NAMES[c] || c).join(" · ");
+}
+
+/* ---------- nav ---------- */
+function buildNav(){
+  ALBUMS.forEach((al, ai) => {
+    const li = document.createElement("li");
+    li.className = "album";
+    const btn = document.createElement("button");
+    btn.setAttribute("aria-expanded", "false");
+    btn.innerHTML = `<span>${al.title} <span class="yr">${al.vol} · ${al.year}</span></span>` +
+      `<span class="caret" aria-hidden="true">▸</span>`;
+    btn.addEventListener("click", () => toggleAlbum(ai));
+    li.appendChild(btn);
+    const ul = document.createElement("ul");
+    ul.className = "tracks";
+    const inner = document.createElement("div");
+    inner.className = "tracks-inner";
+    ul.appendChild(inner);
+    al.songs.forEach((s, si) => {
+      const tli = document.createElement("li");
+      const tb = document.createElement("button");
+      tb.id = "nav_"+songId(ai,si);
+      const done = Array.isArray(s.lyrics) && s.lyrics.length;
+      tb.innerHTML = `<span>${s.t}</span>` +
+        (done ? `<span class="lang">${langLabel(s.lang)}</span>`
+              : `<span class="todo">待录</span>`);
+      tb.addEventListener("click", () => selectSong(ai, si));
+      tli.appendChild(tb);
+      inner.appendChild(tli);
+    });
+    li.appendChild(ul);
+    albumList.appendChild(li);
+  });
+}
+function collapseOthers(keep){
+  Array.from(albumList.children).forEach((li, i) => {
+    if (i === keep || !li.classList.contains("open")) return;
+    li.classList.remove("open");
+    const b = li.querySelector("button");
+    if (b) b.setAttribute("aria-expanded", "false");
+  });
+}
+function toggleAlbum(ai){
+  const li = albumList.children[ai];
+  if (!li) return;
+  const open = li.classList.toggle("open");
+  const btn = li.querySelector("button");
+  if (btn) btn.setAttribute("aria-expanded", String(open));
+  if (open) collapseOthers(ai);
+}
+function openAlbum(ai){
+  const li = albumList.children[ai];
+  if (!li) return;
+  collapseOthers(ai);
+  if (li.classList.contains("open")) return;
+  li.classList.add("open");
+  const btn = li.querySelector("button");
+  if (btn) btn.setAttribute("aria-expanded", "true");
+}
+
+/* ---------- helpers ---------- */
+function stanzaHas(lyrics, key){
+  return Array.isArray(lyrics) && lyrics.some(st => Array.isArray(st[key]) && st[key].some(x => x && x.trim()));
+}
+function lines(arr){
+  return (arr || []).map(l => `<span class="line">${l || "&nbsp;"}</span>`).join("");
+}
+
+/* ---------- render one song ---------- */
+function renderSong(s){
+  const hasOrig = stanzaHas(s.lyrics, "orig");
+  const hasEn   = stanzaHas(s.lyrics, "en");
+  const hasZh   = stanzaHas(s.lyrics, "trans");
+
+  // 右栏实际语言：想看的 glossLang 若无数据则回退到另一种
+  let g = glossLang;
+  if (g === "en" && !hasEn) g = "zh";
+  if (g === "zh" && !hasZh) g = hasEn ? "en" : "zh";
+
+  // 布局：有原文 → 双栏（原文 | 右栏gloss）；无原文 → 单栏（只 gloss）
+  const twoCol = hasOrig;
+
+  let html = "";
+
+  // 语言切换条（只有在右栏两种语言都可选时才给切换，否则只标注）
+  html += `<div class="switch-bar">`;
+  html += `<span class="switch-label">对照语言</span>`;
+  html += `<div class="switch" role="group" aria-label="右栏语言切换">`;
+  html += `<button type="button" data-gloss="zh" aria-pressed="${g==="zh"}" ${hasZh?"":'class="disabled" disabled'}>中文</button>`;
+  html += `<button type="button" data-gloss="en" aria-pressed="${g==="en"}" ${hasEn?"":'class="disabled" disabled'}>English</button>`;
+  html += `</div>`;
+  if (hasOrig) html += `<span class="switch-label">· 盖尔语原文始终在左</span>`;
+  html += `</div>`;
+
+  // 列标题
+  const rightCap = g === "en" ? "English" : "中文";
+  html += `<div class="col-caps${twoCol?"":" solo"}">`;
+  if (twoCol) html += `<span>Gaeilge · 原文</span>`;
+  html += `<span>${rightCap}</span></div>`;
+
+  html += `<div class="lyrics">`;
+  s.lyrics.forEach(st => {
+    html += `<div class="stanza${st.chorus ? " chorus":""}${twoCol?"":" solo"}">`;
+    if (st.role) html += `<div class="role">${st.role}</div>`;
+    if (twoCol){
+      const o = (st.orig && st.orig.length) ? lines(st.orig) : `<span class="missing">（本段暂缺原文）</span>`;
+      html += `<div class="orig">${o}</div>`;
+    }
+    const arr = g === "en" ? st.en : st.trans;
+    const has = Array.isArray(arr) && arr.some(x => x && x.trim());
+    html += has
+      ? `<div class="gloss ${g}">${lines(arr)}</div>`
+      : `<div class="gloss empty">${g==="en"?"no English yet":"待译…"}</div>`;
+    html += `</div>`;
+  });
+  html += `</div>`;
+  return html;
+}
+
+/* ---------- select song ---------- */
+function selectSong(ai, si){
+  const al = ALBUMS[ai], s = al.songs[si];
+  openAlbum(ai);
+  document.querySelectorAll(".tracks button").forEach(b => b.classList.remove("active"));
+  const nav = document.getElementById("nav_"+songId(ai,si));
+  if (nav) nav.classList.add("active");
+  document.querySelectorAll(".results .r-btn").forEach(b => {
+    b.classList.toggle("active", +b.dataset.ai === ai && +b.dataset.si === si);
+  });
+  current = [ai, si];
+
+  let langTxt = langName(s.lang);
+  if (s.transOnly) langTxt += " · 暂缺英译";
+
+  let html = `<div class="song-head">
+      <p class="album-tag">${al.title} ${al.vol} · ${al.year}</p>
+      <h2>${s.t}</h2>
+      <div class="meta"><span><b>语言</b>${langTxt}</span></div>
+    </div>`;
+
+  if (s.note) html += `<div class="note"><b>Nóta · 备注</b>${s.note}</div>`;
+
+  if (Array.isArray(s.lyrics) && s.lyrics.length){
+    html += renderSong(s);
+  } else {
+    html += `<div class="placeholder">
+      <p>这首《${s.t}》还没有录入歌词。</p>
+      <p class="how">把它的盖尔语原文（和英译）贴给 Claude，就会按原文／英译／中文三语逐段对照填进这里。</p>
+    </div>`;
+  }
+
+  main.innerHTML = html;
+
+  // 绑定语言切换
+  main.querySelectorAll(".switch button[data-gloss]").forEach(b => {
+    if (b.disabled) return;
+    b.addEventListener("click", () => {
+      glossLang = b.dataset.gloss;
+      try { localStorage.setItem("sb_gloss", glossLang); } catch(e){}
+      selectSong(ai, si);   // 重渲染当前歌
+    });
+  });
+
+  main.scrollIntoView({behavior:"smooth", block:"start"});
+  if (window.matchMedia("(max-width: 860px)").matches){
+    sideInner.classList.add("collapsed");
+    mobileBar.setAttribute("aria-expanded","false");
+    mobileCaret.textContent = "▸";
+  }
+  try { localStorage.setItem("sb_last", ai+","+si); } catch(e){}
+}
+
+/* ---------- search ---------- */
+const searchWrap = document.getElementById("search");
+const searchInput = document.getElementById("searchInput");
+const searchClear = document.getElementById("searchClear");
+const resultList = document.getElementById("resultList");
+
+const SEARCH_INDEX = [];
+ALBUMS.forEach((al, ai) => al.songs.forEach((s, si) => {
+  const ls = [];
+  if (Array.isArray(s.lyrics)) s.lyrics.forEach(st => {
+    (st.orig  || []).forEach(l => { if (l && l.trim()) ls.push({ text: l, zh:false }); });
+    (st.en    || []).forEach(l => { if (l && l.trim()) ls.push({ text: l, zh:false }); });
+    (st.trans || []).forEach(l => { if (l && l.trim()) ls.push({ text: l, zh:true  }); });
+  });
+  SEARCH_INDEX.push({
+    ai, si, title: s.t || "",
+    album: (al.vol && al.vol !== "专辑") ? al.vol : al.title,
+    lines: ls,
+    hay: ((s.t || "") + "\n" + ls.map(l => l.text).join("\n")).toLowerCase()
+  });
+}));
+
+function escHtml(s){ return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function escReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+function highlight(text, q){
+  const safe = escHtml(text);
+  if (!q) return safe;
+  return safe.replace(new RegExp(escReg(escHtml(q)), "gi"), m => `<mark>${m}</mark>`);
+}
+function runSearch(q){
+  q = q.trim();
+  const has = q.length > 0;
+  searchWrap.classList.toggle("has-query", has);
+  const head = document.getElementById("sideHead");
+  if (!has){
+    resultList.classList.add("hidden"); resultList.innerHTML = "";
+    albumList.classList.remove("hidden");
+    if (head) head.textContent = "Songbook";
+    return;
+  }
+  albumList.classList.add("hidden");
+  resultList.classList.remove("hidden");
+  if (head) head.textContent = "Torthaí · 搜索结果";
+  if (window.matchMedia("(max-width: 860px)").matches){
+    sideInner.classList.remove("collapsed");
+    mobileBar.setAttribute("aria-expanded","true");
+    mobileCaret.textContent = "▾";
+  }
+  const ql = q.toLowerCase();
+  const hits = SEARCH_INDEX.filter(e => e.hay.includes(ql));
+  if (!hits.length){
+    resultList.innerHTML = `<li class="hint">没有找到与「${escHtml(q)}」相关的歌名或歌词。</li>`;
+    return;
+  }
+  resultList.innerHTML = hits.map(e => {
+    const titleHit = e.title.toLowerCase().includes(ql);
+    let snip = e.lines.find(l => l.text.toLowerCase().includes(ql));
+    if (!snip && !titleHit) snip = e.lines[0];
+    const snipHtml = snip
+      ? `<div class="r-snip${snip.zh ? " zh":""}">${highlight(snip.text, snip.text.toLowerCase().includes(ql) ? q : "")}</div>`
+      : "";
+    const active = current && current[0] === e.ai && current[1] === e.si ? " active" : "";
+    return `<li><button class="r-btn${active}" data-ai="${e.ai}" data-si="${e.si}">
+        <div class="r-title"><span class="name">${highlight(e.title, titleHit ? q : "")}</span>
+          <span class="r-album">${escHtml(e.album)}</span></div>${snipHtml}
+      </button></li>`;
+  }).join("");
+  resultList.querySelectorAll(".r-btn").forEach(b => {
+    b.addEventListener("click", () => selectSong(+b.dataset.ai, +b.dataset.si));
+  });
+}
+searchInput.addEventListener("input", () => runSearch(searchInput.value));
+searchClear.addEventListener("click", () => { searchInput.value=""; runSearch(""); searchInput.focus(); });
+searchInput.addEventListener("keydown", e => {
+  if (e.key === "Escape"){ searchInput.value=""; runSearch(""); searchInput.blur(); }
+  if (e.key === "Enter"){ const first = resultList.querySelector(".r-btn"); if (first) first.click(); }
+});
+
+/* mobile toggle */
+const sideInner = document.getElementById("sideInner");
+const mobileBar = document.getElementById("mobileBar");
+const mobileCaret = document.getElementById("mobileCaret");
+mobileBar.addEventListener("click", () => {
+  const c = sideInner.classList.toggle("collapsed");
+  mobileBar.setAttribute("aria-expanded", String(!c));
+  mobileCaret.textContent = c ? "▸" : "▾";
+});
+
+buildNav();
+let start = [0,0];
+try {
+  const saved = localStorage.getItem("sb_last");
+  if (saved){ const [a,b]=saved.split(",").map(Number);
+    if (ALBUMS[a] && ALBUMS[a].songs[b]) start=[a,b]; }
+} catch(e){}
+selectSong(start[0], start[1]);
+</script>
+</body>
+</html>
